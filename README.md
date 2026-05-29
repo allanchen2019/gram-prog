@@ -2,6 +2,8 @@
 
 `gram-prog` is a premium, distraction-free writing environment and AI-powered grammar assistant. Inspired by **Notion** and **iA Writer's** minimal paper aesthetic, it provides an elegant workspace tailored for writers who demand absolute precision, focus, and fluidity.
 
+👉 **[简体中文](README_zh.md)**
+
 Powered by the **Google Gemini API** (using the latest `gemini-flash-lite-latest` and `gemini-3.5-flash` models), it offers character-accurate, context-aware grammar checking and advanced tone-shifting rewrite engines in real-time.
 
 ---
