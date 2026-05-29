@@ -1,0 +1,184 @@
+:root {
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Color Palette - Light Mode (Clean Paper) */
+  --bg-app: #FAF9F6;           /* Warm Alabaster Paper */
+  --bg-editor: #FFFFFF;        /* Crisp White Page */
+  --bg-card: #FDFDFB;          /* Soft Card Paper */
+  --bg-sidebar: #FAF9F5;       /* Muted Sidebar Warm Grey */
+  --border-color: #E2E0D8;     /* Soft Grey-Clay Border */
+  --border-active: #1A1A1A;    /* Sharp Ink Border */
+  
+  /* Text Colors */
+  --text-primary: #1C1A17;     /* Deep Ink */
+  --text-secondary: #5C5852;   /* Muted Slate Clay */
+  --text-tertiary: #8E8981;    /* Light Slate Clay */
+  
+  /* Accents */
+  --accent: #2B6CB0;           /* Soft Royal Blue */
+  --accent-light: #EBF8FF;     /* Very Light Blue */
+  --shadow-sm: 0 1px 3px rgba(28, 26, 23, 0.05);
+  --shadow-md: 0 4px 12px rgba(28, 26, 23, 0.06);
+  --shadow-lg: 0 12px 24px rgba(28, 26, 23, 0.08);
+
+  /* Highlights (Highlighting Colors - Muted Pastel) */
+  --color-spelling-line: #D9383A;
+  --color-spelling-bg: rgba(217, 56, 58, 0.08);
+  --color-spelling-hover: rgba(217, 56, 58, 0.15);
+
+  --color-grammar-line: #2B6CB0;
+  --color-grammar-bg: rgba(43, 108, 176, 0.08);
+  --color-grammar-hover: rgba(43, 108, 176, 0.15);
+
+  --color-clarity-line: #B7791F;
+  --color-clarity-bg: rgba(183, 121, 31, 0.08);
+  --color-clarity-hover: rgba(183, 121, 31, 0.15);
+
+  --color-tone-line: #7C3AED;
+  --color-tone-bg: rgba(124, 58, 237, 0.08);
+  --color-tone-hover: rgba(124, 58, 237, 0.15);
+
+  /* General settings */
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dark Mode (Warm Charcoal & Dark Parchment) */
+.dark-theme {
+  --bg-app: #121212;           /* Deep Charcoal Ink */
+  --bg-editor: #181818;        /* Soft Dark Canvas */
+  --bg-card: #1C1C1C;          /* Muted Dark Card */
+  --bg-sidebar: #141414;       /* Extra Dark Sidebar */
+  --border-color: #2D2D2D;     /* Dark Clay Border */
+  --border-active: #E5E5E5;    /* Soft Parchment Focus */
+
+  --text-primary: #E5E5E5;     /* Warm Parchment */
+  --text-secondary: #9E9E9E;   /* Muted Grey */
+  --text-tertiary: #666666;    /* Dark Muted Grey */
+
+  --accent: #63B3ED;           /* Pastel Electric Blue */
+  --accent-light: #1A365D;     /* Dark Accent Background */
+  
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.5);
+
+  --color-spelling-line: #FC8181;
+  --color-spelling-bg: rgba(252, 129, 129, 0.15);
+  --color-spelling-hover: rgba(252, 129, 129, 0.25);
+
+  --color-grammar-line: #63B3ED;
+  --color-grammar-bg: rgba(99, 179, 237, 0.15);
+  --color-grammar-hover: rgba(99, 179, 237, 0.25);
+
+  --color-clarity-line: #F6AD55;
+  --color-clarity-bg: rgba(246, 173, 85, 0.15);
+  --color-clarity-hover: rgba(246, 173, 85, 0.25);
+
+  --color-tone-line: #A78BFA;
+  --color-tone-bg: rgba(167, 139, 250, 0.15);
+  --color-tone-hover: rgba(167, 139, 250, 0.25);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden; /* Monorepo layout handles its own scrolling */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Elegant Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Highlights Dotted Styles */
+.highlight-item {
+  position: relative;
+  text-decoration: none;
+  border-bottom: 2px dotted transparent;
+  cursor: pointer;
+  padding: 1px 0;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.highlight-spelling {
+  border-bottom-color: var(--color-spelling-line);
+  background-color: var(--color-spelling-bg);
+}
+.highlight-spelling:hover, .highlight-spelling.active-highlight {
+  background-color: var(--color-spelling-hover);
+  border-bottom-style: double;
+}
+
+.highlight-grammar {
+  border-bottom-color: var(--color-grammar-line);
+  background-color: var(--color-grammar-bg);
+}
+.highlight-grammar:hover, .highlight-grammar.active-highlight {
+  background-color: var(--color-grammar-hover);
+  border-bottom-style: double;
+}
+
+.highlight-clarity {
+  border-bottom-color: var(--color-clarity-line);
+  background-color: var(--color-clarity-bg);
+}
+.highlight-clarity:hover, .highlight-clarity.active-highlight {
+  background-color: var(--color-clarity-hover);
+  border-bottom-style: double;
+}
+
+.highlight-tone {
+  border-bottom-color: var(--color-tone-line);
+  background-color: var(--color-tone-bg);
+}
+.highlight-tone:hover, .highlight-tone.active-highlight {
+  background-color: var(--color-tone-hover);
+  border-bottom-style: double;
+}
+
+/* Micro-animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); opacity: 0.5; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-in {
+  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

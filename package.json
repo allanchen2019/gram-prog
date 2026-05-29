@@ -1,0 +1,15 @@
+{
+  "name": "gram-prog-root",
+  "version": "1.0.0",
+  "description": "Grammarly-like LLM Grammar Checker (Root Monorepo)",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && npm install --prefix frontend && npm install --prefix backend",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
